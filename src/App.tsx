@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { ReactElement } from 'react';
 import './App.css';
+import Board from './plan/Board';
+import { createTheme, ThemeProvider, TypographyVariantsOptions } from '@mui/material';
+import { Header } from './Header';
 
-function App() {
+export const App:React.FC = ():ReactElement => {
+    const rooseveltTheme = createTheme({
+
+    });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ThemeProvider theme={rooseveltTheme}>
+          <div className="App">
+              <div className="App-header">
+                  <Header/>
+              </div>
+              <div className="App-board">
+                  <Board/>
+              </div>
+          </div>
+      </ThemeProvider>
   );
 }
 
